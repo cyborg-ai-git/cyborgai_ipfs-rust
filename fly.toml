@@ -1,0 +1,57 @@
+app = "cyborgaipfs"
+kill_signal = "SIGINT"
+kill_timeout = 5
+primary_region = "ams"
+
+[mounts]
+  destination = "/data/ipfs"
+  source = "ipfs_data"
+
+[env]
+  DATA = "/data"
+  GOLOG_LOG_LEVEL = "info"
+  GOLOG_LOG_FMT = "json"
+  IPFS_PATH = "/data/ipfs"
+  IPFS_PROFILE = "server"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = false
+
+[[services]]
+  internal_port = 8081
+  protocol = "tcp"
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+[[services]]
+  internal_port = 4001
+  protocol = "tcp"
+  [services.concurrency]
+    hard_limit = 1000
+    type = "connections"
+
+  [[services.ports]]
+    port = 4001
+
+[[services]]
+  internal_port = 4001
+  protocol = "udp"
+  [services.concurrency]
+    hard_limit = 1000
+    type = "connections"
+
+  [[services.ports]]
+    port = 4001
+  

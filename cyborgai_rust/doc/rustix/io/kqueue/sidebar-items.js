@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["EventFilter"],"fn":["kevent","kqueue"],"struct":["Event","EventFlags","UserDefinedFlags","UserFlags","VnodeEvents"]};

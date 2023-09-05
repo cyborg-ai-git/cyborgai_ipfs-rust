@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["download","guess_mime_type","main","preview","upload"],"static":["BASE_URL","BASE_URL_GW"],"struct":["CIpfs","UploadResponse","download","preview","upload"]};
